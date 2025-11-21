@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: parcialdos
+    image: postgres:16
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: parcialdos          # nombre de la base
+      POSTGRES_USER: parcialdos        # usuario de la BD
+      POSTGRES_PASSWORD: parcialdos    # contraseña de ese usuario
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
