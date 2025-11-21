@@ -35,12 +35,6 @@ export class PonentesService {
     return this.ponenteRepository.save(ponente);
   }
 
-  async findAll(): Promise<Ponente[]> {
-    return this.ponenteRepository.find({
-      relations: ['eventos'],
-    });
-  }
-
   async findOne(id: number): Promise<Ponente> {
     const ponente = await this.ponenteRepository.findOne({
       where: { id },

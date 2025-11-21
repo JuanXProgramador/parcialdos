@@ -63,12 +63,6 @@ export class EventosService {
     return this.eventoRepository.save(evento);
   }
 
-  async findAll(): Promise<Evento[]> {
-    return this.eventoRepository.find({
-      relations: ['ponente', 'auditorio', 'asistentes'],
-    });
-  }
-
   async findOne(id: number): Promise<Evento> {
     const evento = await this.eventoRepository.findOne({
       where: { id },
@@ -81,6 +75,7 @@ export class EventosService {
 
     return evento;
   }
+
   async aprobarEvento(id: number): Promise<Evento> {
     const evento = await this.findOne(id);
 

@@ -60,7 +60,7 @@ export class AsistentesService {
     return this.asistenteRepository.save(asistente);
   }
 
-  async findByEvento(eventoId: number): Promise<Asistente[]> {
+  async findByEventoAsistentes(eventoId: number): Promise<Asistente[]> {
     const evento = await this.eventoRepository.findOne({
       where: { id: eventoId },
       relations: ['asistentes'],
